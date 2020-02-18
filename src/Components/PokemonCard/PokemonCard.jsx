@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './PokemonCard.css';
 
 class PokemonCard extends Component{
     render() {

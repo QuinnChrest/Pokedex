@@ -1,13 +1,32 @@
 import React from 'react';
 import './App.css';
-import PokemonCard from './Components/PokemonCard';
-import PokemonInfo from './Components/PokemonInfo';
+import PokemonCard from './Components/PokemonCard/PokemonCard';
+import PokemonDetail from './Components/PokemonDetail/PokemonDetail';
 
 function App() {
   return (
-    <div>
-      <PokemonCard/>
-      <PokemonInfo/>
+    <div className="Content">
+      <PokemonDetail/>
+      <div className="navigationPanel">
+
+      </div>
+      <div className="cardPanel">
+        <PokemonCard/>
+        <PokemonCard/>
+        <PokemonCard/>
+        <PokemonCard/>
+        <PokemonCard/>
+        <PokemonCard/>
+        <PokemonCard/>
+        <PokemonCard/>
+        <PokemonCard/>
+        <PokemonCard/>
+        <PokemonCard/>
+        <PokemonCard/>
+        <PokemonCard/>
+        <PokemonCard/>
+        <PokemonCard/>
+      </div>
     </div>
   );
 }
