@@ -2,22 +2,26 @@ import React, {Component} from 'react';
 import './PokemonCard.css';
 
 class PokemonCard extends Component{
+
+    renderTypes(){
+        return this.props.types.map(type => (
+            <div className={"type " + type}>
+                <div className="text">{type}</div>
+            </div>
+        ))
+    }
+
     render() {
         return(
             <div className="card">
                 <div className="titleContainer">
-                    <div className="title">Pikachu</div>
+                    <div className="title">{this.props.name}</div>
                 </div>
                 <div className="imageContainer">
-                    <img height="104px" width="104px" className="image" src="https:\/\/intern-pokedex.myriadapps.com\/images\/pokemon\/25.png"/>
+                    <img height="104px" width="104px" className="image" alt="pokemon" src={this.props.image}/>
                 </div>
                 <div className="typeContainer">
-                    <div className="type">
-                        <div className="text">Electric</div>
-                    </div>
-                    <div className="type">
-                        <div className="text">Grass</div>
-                    </div>
+                    {this.renderTypes()}
                 </div>
             </div>
         );
