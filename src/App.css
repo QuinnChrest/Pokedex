@@ -35,6 +35,14 @@ body{
 .navigationPanel .rightArrow, .navigationPanel .leftArrow, .searchBar .searchIcon {
   font-size: 25px;
   color: white;
+  position: relative;
+}
+
+.navigationPanel .rightArrow svg, .navigationPanel .leftArrow svg{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .navigationPanel .searchBar .searchIcon{
@@ -46,8 +54,6 @@ body{
   width: 64px;
   border-radius: 64px;
   background-color: rgb(79, 153, 144);
-  text-align: center;
-  line-height: 64px;
   margin: 64px;
 }
 
