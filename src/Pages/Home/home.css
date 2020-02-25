@@ -2,17 +2,18 @@ body{
   background-color: rgba(85, 166, 156, 1);
 }
 
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: rgb(66, 124, 118);
-  opacity: 1; /* Firefox */
+.cardPanel{
+  padding: 0px 40px 0px;
+  display: flex;
+  flex-wrap: wrap;
+  white-space: nowrap;
 }
 
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
-  color: rgb(66, 124, 118);
-}
-
-::-ms-input-placeholder { /* Microsoft Edge */
-  color: rgb(66, 124, 118);
+.Content{
+  position: absolute;
+  width: 1024px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .navigationPanel{
@@ -38,6 +39,19 @@ body{
   position: relative;
 }
 
+.navigationPanel .leftArrow, .navigationPanel .rightArrow{
+  height: 64px;
+  width: 64px;
+  border-radius: 64px;
+  background-color: rgb(79, 153, 144);
+  margin: 64px;
+}
+
+.navigationPanel .leftArrow:hover, .navigationPanel .rightArrow:hover{
+  color: rgba(85, 166, 156, 1);
+  background-color: white;
+}
+
 .navigationPanel .rightArrow svg, .navigationPanel .leftArrow svg{
   position: absolute;
   top: 50%;
@@ -49,18 +63,6 @@ body{
   padding: 25px;
 }
 
-.navigationPanel .leftArrow, .navigationPanel .rightArrow{
-  height: 64px;
-  width: 64px;
-  border-radius: 64px;
-  background-color: rgb(79, 153, 144);
-  margin: 64px;
-}
-
-.navigationPanel .leftArrow:hover, .navigationPanel .rightArrow:hover{
-  background-color: rgb(134, 189, 183);
-}
-
 .navigationPanel .searchBar .search{
   width: 100%;
   height: 96px;
@@ -70,16 +72,15 @@ body{
   color: white;
 }
 
-.cardPanel{
-  padding: 0px 40px 0px;
-  display: flex;
-  flex-wrap: wrap;
-  white-space: nowrap;
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgb(66, 124, 118);
+  opacity: 1; /* Firefox */
 }
 
-.Content{
-  position: absolute;
-  width: 1024px;
-  left: 50%;
-  transform: translateX(-50%);
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: rgb(66, 124, 118);
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: rgb(66, 124, 118);
 }

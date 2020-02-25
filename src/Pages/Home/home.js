@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
-import './App.css';
+import './home.css';
 import axios from 'axios';
 import {Icon} from 'antd';
-import PokemonCard from './Components/PokemonCard/PokemonCard';
+import PokemonCard from '../../Components/PokemonCard/PokemonCard';
 
-class App extends Component {
-  constructor(){
-    super();
+class Home extends Component {
+  constructor(props){
+    super(props);
     this.state = {
-      URL: "https://intern-pokedex.myriadapps.com/api/v1/pokemon",
       pokemon: [],
-      prevLink: "",
-      nextLink: "",
+      URL: "https://intern-pokedex.myriadapps.com/api/v1/pokemon"
     }
+
+    this.nextLink = "";
+    this.prevLink = "";
 
     this.leftArrowClick = this.leftArrowClick.bind(this);
     this.rightArrowClick = this.rightArrowClick.bind(this);
@@ -23,10 +24,10 @@ class App extends Component {
   getPokemon(){
     axios.get(this.state.URL).then((response) => {
       try{
+        this.prevLink = response.data.links.prev;
+        this.nextLink = response.data.links.next;
         this.setState({
-          pokemon: response.data.data,
-          prevLink: response.data.links.prev,
-          nextLink: response.data.links.next
+          pokemon: response.data.data
         })
       }  
       catch(error){
@@ -38,22 +39,22 @@ class App extends Component {
   renderPokemon(){
     this.getPokemon();
     return this.state.pokemon.map(pokemon => (
-      <PokemonCard name={pokemon.name} image={pokemon.image} types={pokemon.types}/>
+      <PokemonCard key={pokemon.id} name={pokemon.name} image={pokemon.image} types={pokemon.types} onClick={this.cardClick}/>
     ))
   }
 
   leftArrowClick(){
-    if(this.state.prevLink !== null){
+    if(this.prevLink !== null){
       this.setState({
-        URL: this.state.prevLink
+        URL: this.prevLink
       })
     }
   }
 
   rightArrowClick(){
-    if(this.state.nextLink !== null){
+    if(this.nextLink !== null){
       this.setState({
-        URL: this.state.nextLink
+        URL: this.nextLink
       })
     }
   }
@@ -62,12 +63,6 @@ class App extends Component {
     this.setState({
       URL: "https://intern-pokedex.myriadapps.com/api/v1/pokemon?name=" + target.value
     })
-
-    if(this.state.URL === "https://intern-pokedex.myriadapps.com/api/v1/pokemon?name="){
-      this.setState({
-        URL: "https://intern-pokedex.myriadapps.com/api/v1/pokemon"
-      })
-    }
   }
 
   render(){
@@ -95,4 +90,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Home;

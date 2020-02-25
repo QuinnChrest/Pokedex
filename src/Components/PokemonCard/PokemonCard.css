@@ -5,6 +5,10 @@
     border-radius: 2px;
     margin: 8px;
   }
+
+  .card:hover{
+    background-color: rgb(245, 245, 245);
+  }
   
   .card .titleContainer{
     height: 55px;

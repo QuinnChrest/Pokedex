@@ -3,9 +3,14 @@ import './PokemonCard.css';
 
 class PokemonCard extends Component{
 
+    cardClick({target}){
+        console.log("nice");
+        window.location.href = "https://intern-pokedex.myriadapps.com/api/v1/pokemon/" + this.props.key;
+    }
+
     renderTypes(){
         return this.props.types.map(type => (
-            <div className={"type " + type}>
+            <div key={type.key} className={"type " + type}>
                 <div className="text">{type}</div>
             </div>
         ))
@@ -13,7 +18,7 @@ class PokemonCard extends Component{
 
     render() {
         return(
-            <div className="card">
+            <div className="card" onClick={this.cardClick}>
                 <div className="titleContainer">
                     <div className="title">{this.props.name}</div>
                 </div>
