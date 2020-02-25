@@ -5,17 +5,29 @@ import {Icon} from 'antd';
 import PokemonCard from './Components/PokemonCard/PokemonCard';
 
 class App extends Component {
+  constructor(){
+    super();
+    this.state = {
+      URL: "https://intern-pokedex.myriadapps.com/api/v1/pokemon",
+      pokemon: [],
+      prevLink: "",
+      nextLink: "",
+    }
 
-  state = {
-    pokemon: []
+    this.leftArrowClick = this.leftArrowClick.bind(this);
+    this.rightArrowClick = this.rightArrowClick.bind(this);
+    this.search = this.search.bind(this);
   }
 
-  componentDidMount(){
-    axios.get("https://intern-pokedex.myriadapps.com/api/v1/pokemon").then((response) => {
+
+  getPokemon(){
+    axios.get(this.state.URL).then((response) => {
       try{
-        const poke = response.data;
-        const pokemon = poke.data;
-        this.setState({pokemon});
+        this.setState({
+          pokemon: response.data.data,
+          prevLink: response.data.links.prev,
+          nextLink: response.data.links.next
+        })
       }  
       catch(error){
         console.log(error);
@@ -24,26 +36,54 @@ class App extends Component {
   }
 
   renderPokemon(){
-    console.log(this.state.pokemon);
+    this.getPokemon();
     return this.state.pokemon.map(pokemon => (
       <PokemonCard name={pokemon.name} image={pokemon.image} types={pokemon.types}/>
     ))
+  }
+
+  leftArrowClick(){
+    if(this.state.prevLink !== null){
+      this.setState({
+        URL: this.state.prevLink
+      })
+    }
+  }
+
+  rightArrowClick(){
+    if(this.state.nextLink !== null){
+      this.setState({
+        URL: this.state.nextLink
+      })
+    }
+  }
+
+  search({target}){
+    this.setState({
+      URL: "https://intern-pokedex.myriadapps.com/api/v1/pokemon?name=" + target.value
+    })
+
+    if(this.state.URL === "https://intern-pokedex.myriadapps.com/api/v1/pokemon?name="){
+      this.setState({
+        URL: "https://intern-pokedex.myriadapps.com/api/v1/pokemon"
+      })
+    }
   }
 
   render(){
     return (
       <div className="Content">
         <div className="navigationPanel">
-          <div className="leftArrow">
+          <div className="leftArrow" onClick={this.leftArrowClick}>
             <Icon type="arrow-left" />
           </div>
           <div className="searchBar">
             <div className="searchIcon">
               <Icon type="search"/>
             </div>
-            <input type="text" className="search" placeholder="Pokédex"/>
+            <input type="text" className="search" placeholder="Pokédex" onInput={this.search}/>
           </div>
-          <div className="rightArrow">
+          <div className="rightArrow" onClick={this.rightArrowClick}>
             <Icon type="arrow-right" />
           </div>
         </div>

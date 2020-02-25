@@ -57,6 +57,10 @@ body{
   margin: 64px;
 }
 
+.navigationPanel .leftArrow:hover, .navigationPanel .rightArrow:hover{
+  background-color: rgb(134, 189, 183);
+}
+
 .navigationPanel .searchBar .search{
   width: 100%;
   height: 96px;
