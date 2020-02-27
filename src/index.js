@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
+import React from 'react';
+import {BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
@@ -9,8 +9,13 @@ import Detail from "./Pages/Detail/detail";
 
 ReactDOM.render(            
     <Router>
-        <Route path="/home" component={Home}/>
-        <Route path="/pokemon/:pokedexNumber" component={Detail}/>
+        <Switch>
+            <Route path="/home/:pageNumber" component={Home}/>
+            <Route path="/home" component={Home}/>
+            <Route path="/search/:search" component={Home}/>
+            <Route path="/pokemon/:pokedexNumber" component={Detail}/>
+            <Redirect from="*" to="/home"/>
+        </Switch>
     </Router>
     , document.getElementById('root'));
 

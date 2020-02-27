@@ -4,6 +4,7 @@ import './PokemonDetail.css';
 class PokemonDetail extends Component{
 
     renderTypes(){
+        console.log(this.props.types);
         return this.props.types.map(type => (
             <div key={type.key} className={"type " + type}>
                 <div className="text">{type}</div>
@@ -12,13 +13,11 @@ class PokemonDetail extends Component{
     }
 
     renderStats(){
-        return this.props.stats.map(stat => (
-            <div></div>
-        ))
+        console.log(this.props.stats);
     }
 
     renderProfile(){
-        return this.props.profile.map(stat => (
+        return (
             <table>
                 <tr>
                     <td></td>
@@ -45,7 +44,7 @@ class PokemonDetail extends Component{
                     <td></td>
                 </tr>
             </table>
-        ))
+        )
     }
 
     render() {

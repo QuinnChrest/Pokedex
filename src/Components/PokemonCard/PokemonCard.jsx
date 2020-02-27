@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import './PokemonCard.css';
+import { Link } from 'react-router-dom';
 
 class PokemonCard extends Component{
 
     cardClick({target}){
-        console.log("nice");
-        window.location.href = "https://intern-pokedex.myriadapps.com/api/v1/pokemon/" + this.props.key;
+        window.location.href = "/pokemon/" + this.props.pokedex;
     }
 
     renderTypes(){
@@ -18,7 +18,7 @@ class PokemonCard extends Component{
 
     render() {
         return(
-            <div className="card" onClick={this.cardClick}>
+            <div className="card" onClick={this.cardClick.bind(this)}>
                 <div className="titleContainer">
                     <div className="title">{this.props.name}</div>
                 </div>
