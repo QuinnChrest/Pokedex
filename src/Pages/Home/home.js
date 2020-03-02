@@ -70,6 +70,7 @@ class Home extends Component {
 
   closeSearch(){
     document.getElementById("search").value = "";
+    document.getElementById("closeIcon").style.display = "none";
     this.URL = "https://intern-pokedex.myriadapps.com/api/v1/pokemon";
     this.getPokemon();
   }
