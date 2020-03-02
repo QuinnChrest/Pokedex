@@ -1,68 +1,12 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Quinn Chrest
+Bushel Application Project
 
-## Available Scripts
+I would like to start out by prefacing that this is the first app I’ve ever built in REACT. It was a lot of fun to get to know, and it came with a lot of challenges being it is my first time working with it. I was not able to complete the project to the point I would have liked to but due to time constraints with working full time I needed to get it in otherwise it would never get done. 
+I am happy with what I accomplished but I will go into points that could be improved on:
+-	I was unable to create a mobile view of the webpage due to time constraints, but the webpage is responsive in the fact that it handles the size of the window changing until about a width of 850px is when it starts to look funky. To fix this I would add in media rules for screen size to the CSS to change the styling of the page when the screen reaches a max width of 850px.
 
-In the project directory, you can run:
+-	The forward/backward browser buttons work but you can not go from page to page of Pokémon cards with them, it just works when going between home and detailed views. To fix this I would look into overriding the buttons or add an event handler that gets handled by my react router.
 
-### `npm start`
+-	I had troubles with getting the Pokémon cards on the home page to align correctly and I finally had to cave with doing justify content center. Which works and looks fine when each row has equal number of cards but if not, the last row just looks a little funky. I am not sure how to fix this I tried to use flex for the longest time and still am but when wrapping content, the div doesn’t change its width to the nearest card so there is a bunch of space on the right side. If I could solve that problem, then I can just use justify content flex start.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Being that this is something that I haven’t worked with before I spent a lot of time continually refactoring code, because I found a way of doing something but then found a better way to do it so would go back and refactor everything for consistency.
