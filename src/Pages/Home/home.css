@@ -20,8 +20,12 @@ body{
   align-items: center;
 }
 
-.navigationPanel .searchBar .searchIcon{
+.navigationPanel .searchBar .searchIcon, .closeIcon{
   padding: 25px;
+}
+
+.navigationPanel .searchBar .closeIcon{
+  display: none;
 }
 
 .navigationPanel .searchBar .search{

@@ -132,7 +132,7 @@ background: #EE99AC;
 border: 1px solid #9B6470;
 }
 
-.rightArrow, .leftArrow, .searchIcon {
+.rightArrow, .leftArrow, .searchIcon, .closeIcon{
 font-size: 25px;
 color: white;
 position: relative;

@@ -19,6 +19,7 @@ class Home extends Component {
     this.rightArrowClick = this.rightArrowClick.bind(this);
     this.search = this.search.bind(this);
     this.onSearchChange = this.onSearchChange.bind(this);
+    this.closeSearch = this.closeSearch.bind(this);
 
     this.getPokemon();
   }
@@ -60,10 +61,17 @@ class Home extends Component {
   }
 
   search = (e) => { 
-    if(e.key === "Enter"){
+    if(e.key === "Enter" && this.searchValue !== undefined){
       this.URL = "https://intern-pokedex.myriadapps.com/api/v1/pokemon?name=" + this.searchValue;
       this.getPokemon();
+      document.getElementById("closeIcon").style.display = "inline-block";
     }
+  }
+
+  closeSearch(){
+    document.getElementById("search").value = "";
+    this.URL = "https://intern-pokedex.myriadapps.com/api/v1/pokemon";
+    this.getPokemon();
   }
 
   render(){
@@ -77,7 +85,10 @@ class Home extends Component {
             <div className="searchIcon">
               <Icon type="search"/>
             </div>
-            <input type="text" className="search" placeholder="Pokédex" onKeyPress={this.search} onChangeCapture={this.onSearchChange}/>
+            <input type="text" id="search" className="search" placeholder="Pokédex" onKeyPress={this.search} onChangeCapture={this.onSearchChange}/>
+            <div id="closeIcon" className="closeIcon" onClick={this.closeSearch}>
+              <Icon type="close" />
+            </div>
           </div>
           <div className="rightArrow" onClick={this.rightArrowClick}>
             <Icon type="arrow-right" />
