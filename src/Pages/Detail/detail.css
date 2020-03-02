@@ -1,0 +1,17 @@
+.detailContent{
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+}
+
+.headerPanel{
+    display: flex;
+    align-items: center;
+}
+
+.headerPanel .header{
+    font-size: 72px;
+    color: white;
+    line-height: 1;
+    text-align: center;
+}

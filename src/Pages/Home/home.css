@@ -1,19 +1,5 @@
 body{
-  background-color: rgba(85, 166, 156, 1);
-}
-
-.cardPanel{
-  padding: 0px 40px 0px;
-  display: flex;
-  flex-wrap: wrap;
-  white-space: nowrap;
-}
-
-.Content{
-  position: absolute;
-  width: 1024px;
-  left: 50%;
-  transform: translateX(-50%);
+  background-color: var(--primary-color);
 }
 
 .navigationPanel{
@@ -26,37 +12,12 @@ body{
   width: 456px;
   height: 96px;
   border-radius: 7px;
-  background-color: rgb(79, 153, 144);
+  background-color: var(--primary-color);
+  filter: brightness(93%);
   border:none;
   font-size: 72px;
   display:flex;
   align-items: center;
-}
-
-.navigationPanel .rightArrow, .navigationPanel .leftArrow, .searchBar .searchIcon {
-  font-size: 25px;
-  color: white;
-  position: relative;
-}
-
-.navigationPanel .leftArrow, .navigationPanel .rightArrow{
-  height: 64px;
-  width: 64px;
-  border-radius: 64px;
-  background-color: rgb(79, 153, 144);
-  margin: 64px;
-}
-
-.navigationPanel .leftArrow:hover, .navigationPanel .rightArrow:hover{
-  color: rgba(85, 166, 156, 1);
-  background-color: white;
-}
-
-.navigationPanel .rightArrow svg, .navigationPanel .leftArrow svg{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 .navigationPanel .searchBar .searchIcon{
@@ -83,4 +44,26 @@ body{
 
 ::-ms-input-placeholder { /* Microsoft Edge */
   color: rgb(66, 124, 118);
+}
+
+.cardPanel{
+  max-width: 1500px;
+  width: 75%;
+  padding: 0px 40px 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+}
+
+.cardPanel .cardList{
+  list-style: none;
+  padding: 0px;
+  display:flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.cardPanel .cardList .cardListItem{
+  align-self: center;
 }

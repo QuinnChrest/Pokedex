@@ -30,9 +30,9 @@ class Home extends Component {
         this.prevLink = response.data.links.prev;
         this.nextLink = response.data.links.next;
         this.setState({
-          pokemon: response.data.data.map(pokemon => (
-            <PokemonCard key={pokemon.id} name={pokemon.name} image={pokemon.image} types={pokemon.types}/>
-          ))
+          pokemon: <ul className="cardList">{response.data.data.map(pokemon => (
+            <li className="cardListItem"><PokemonCard id={pokemon.id} name={pokemon.name} image={pokemon.image} types={pokemon.types}/></li>
+          ))}</ul>
         })
       }  
       catch(error){
@@ -84,7 +84,7 @@ class Home extends Component {
           </div>
         </div>
         <div className="cardPanel">
-          {this.state.pokemon}
+            {this.state.pokemon}
         </div>
       </div>
     );

@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom
 import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Home from "./Pages/Home/home";
 import Detail from "./Pages/Detail/detail";
@@ -10,10 +11,9 @@ import Detail from "./Pages/Detail/detail";
 ReactDOM.render(            
     <Router>
         <Switch>
-            <Route path="/home/:pageNumber" component={Home}/>
             <Route path="/home" component={Home}/>
             <Route path="/search/:search" component={Home}/>
-            <Route path="/pokemon/:pokedexNumber" component={Detail}/>
+            <Route path="/pokemon/:id" component={Detail}/>
             <Redirect from="*" to="/home"/>
         </Switch>
     </Router>

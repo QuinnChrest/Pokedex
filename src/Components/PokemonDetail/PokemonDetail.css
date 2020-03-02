@@ -1,0 +1,94 @@
+.detailCard {
+background-color: white;
+display: inline-block;
+border-radius: 2px;
+}
+
+.detailCard .titlePanel{
+border-bottom: 1px rgba(233, 233, 233, 1) solid;
+display: flex;
+justify-content: space-between;
+height: 55px;
+}
+
+.detailCard .titlePanel .nameContainer{
+padding: 17px 0px 14px 24px;
+font-weight: bold;
+}
+
+.detailCard .titlePanel .nameContainer .pokedexNumber{
+padding-left: 12px;
+color: var(--primary-color);
+}
+
+.detailCard .statsPanel{
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 34px 72px 48px 72px;
+}
+
+.detailCard .statsPanel .stats{
+width: 75%;
+}
+
+.detailCard .statsPanel .statTable .statName{
+font-weight: bold;
+}
+
+.detailCard .statsPanel .statTable .statValue{
+    padding-left: 48px;
+}
+
+.detailCard .statsPanel .statTable .statBar{
+width: 100%;
+}
+
+.detailCard .statsPanel .statTable .progress-bar{
+background-color: var(--primary-color);
+}
+
+.detailCard .descriptionPanel{
+padding: 0px 56px 32px 56px;
+}
+
+.detailCard .descriptionPanel .genus{
+font-weight: bold;
+padding-bottom: 8px;
+}
+
+.detailCard .profilePanel{
+padding: 0px 40px 24px 40px;
+}
+
+.detailCard .profilePanel .profileHeader{
+height: 32px;
+margin-bottom: 24px;
+background-color: var(--primary-color);
+}
+
+.detailCard .profilePanel .profileHeader .profileHeaderText{
+padding: 4px 16px;
+color: white;
+position: absolute;
+font-weight: bold;
+}
+
+.detailCard .profilePanel .profileTable{
+margin: 0px 16px;
+width: 100%;
+}
+
+.detailCard .profilePanel .profileTable td{
+vertical-align: top;
+}
+
+.detailCard .profilePanel .profileTable td ul{
+list-style: none;
+margin: 0px;
+padding: 0px;
+}
+
+.detailCard .profilePanel .profileTable .abilityHeader{
+font-weight: bold;
+}
