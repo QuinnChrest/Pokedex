@@ -9,7 +9,7 @@ import Home from "./Pages/Home/home";
 import Detail from "./Pages/Detail/detail";
 
 ReactDOM.render(            
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
         <Switch>
             <Route path="/home" component={Home}/>
             <Route path="/search/:search" component={Home}/>
