@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
+import {withRouter} from 'react-router-dom';
 import './PokemonCard.css';
 
 class PokemonCard extends Component{
 
     cardClick({target}){
-        window.location.href = "/Pokedex/pokemon/" + this.props.id;
+        this.props.history.push("/pokemon/" + this.props.id);
     }
 
     renderTypes(){
@@ -32,4 +33,4 @@ class PokemonCard extends Component{
     }
 }
 
-export default PokemonCard;
+export default withRouter(PokemonCard);

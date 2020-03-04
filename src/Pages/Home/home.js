@@ -21,6 +21,8 @@ class Home extends Component {
     this.onSearchChange = this.onSearchChange.bind(this);
     this.closeSearch = this.closeSearch.bind(this);
 
+    document.documentElement.style.setProperty("--primary-color", "rgba(85, 166, 156, 1)");
+
     this.getPokemon();
   }
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './detail.css';
 import axios from 'axios';
+import {withRouter} from 'react-router-dom';
 import {Icon} from 'antd';
 import PokemonDetail from '../../Components/PokemonDetail/PokemonDetail';
 
@@ -15,6 +16,8 @@ class Detail extends Component{
 
         this.URL = "https://intern-pokedex.myriadapps.com/api/v1/pokemon/" + this.props.match.params.id;
         this.name = "";
+
+        this.leftArrowClick = this.leftArrowClick.bind(this);
 
         this.getDetail();
     }
@@ -43,7 +46,7 @@ class Detail extends Component{
     }
 
     leftArrowClick(){
-      window.location.href = "/Pokedex/";
+      this.props.history.push("/");
     }
 
     render(){
@@ -63,4 +66,4 @@ class Detail extends Component{
     }
 }
 
-export default Detail;
+export default withRouter(Detail);
