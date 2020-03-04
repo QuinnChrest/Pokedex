@@ -43,7 +43,7 @@ class Detail extends Component{
     }
 
     leftArrowClick(){
-      window.location.href = "/home";
+      window.location.href = "/Pokedex/";
     }
 
     render(){
