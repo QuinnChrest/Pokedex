@@ -11,10 +11,10 @@ import Detail from "./Pages/Detail/detail";
 ReactDOM.render(            
     <Router basename={process.env.PUBLIC_URL}>
         <Switch>
-            <Route path="/home" component={Home}/>
-            <Route path="/search/:search" component={Home}/>
-            <Route path="/pokemon/:id" component={Detail}/>
-            <Redirect from="*" to="/home"/>
+            <Route path="/Pokedex/home" component={Home}/>
+            <Route path="/Pokedex/search/:search" component={Home}/>
+            <Route path="/Pokedex/pokemon/:id" component={Detail}/>
+            <Redirect from="*" to="/Pokedex/home"/>
         </Switch>
     </Router>
     , document.getElementById('root'));
