@@ -4,7 +4,7 @@ import './PokemonCard.css';
 class PokemonCard extends Component{
 
     cardClick({target}){
-        window.location.href = "/pokemon/" + this.props.id;
+        window.location.href = "/Pokedex/pokemon/" + this.props.id;
     }
 
     renderTypes(){
