@@ -1,10 +1,10 @@
 To run:
-'''
+```node
     npm install
     
     npm start
 
-'''
+```
 
 Project is also deployed at: [Pokedex](https://quinnchrest.github.io/Pokedex/)
 
