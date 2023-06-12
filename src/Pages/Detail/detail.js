@@ -14,7 +14,7 @@ class Detail extends Component{
           detailView: ""
         }
 
-        this.URL = "https://intern-pokedex.myriadapps.com/api/v1/pokemon/" + this.props.match.params.id;
+        this.URL = "https://pokeapi.co/api/v2/pokemon/" + this.props.match.params.name;
         this.name = "";
 
         this.leftArrowClick = this.leftArrowClick.bind(this);
@@ -23,26 +23,28 @@ class Detail extends Component{
     }
 
     getDetail(){
-        axios.get(this.URL).then((response) => {
-          try{
-            this.name = response.data.data.name;
-            var image = response.data.data.image;
-            var types = response.data.data.types;
-            var height = response.data.data.height;
-            var weight = response.data.data.weight;
-            var abilities = response.data.data.abilities;
-            var eggGroups = response.data.data.egg_groups;
-            var stats = response.data.data.stats;
-            var genus = response.data.data.genus;
-            var description = response.data.data.description;
-            this.setState({
-              PokemonDetail: <PokemonDetail id={this.props.match.params.id} name={this.name} image={image} types={types} height={height} weight={weight} abilities={abilities} eggGroups={eggGroups} stats={stats} genus={genus} description={description} />
-            })
-          }  
-          catch(error){
-            console.log(error);
-          }
-        })
+      let data;
+
+      axios.get(this.URL).then((response) => {
+        data = response.data;
+      }).finally(() => {
+        axios.get(data.species.url).then((species) => {
+          this.name = data.name;
+          var image = data.sprites.front_default;
+          var types = data.types.map(function(item) { return item.type.name; });
+          var height = data.height;
+          var weight = data.weight;
+          var abilities = data.abilities.map(function(item) { return item.ability.name; });
+          var stats = Object.assign({}, ...data.stats.map((x) => ({[x.stat.name]: x.base_stat})));
+          var eggGroups = species.data.egg_groups.map(function(item) { return item.name; });
+          var genus = species.data.genera.filter(x => x.language.name == 'en').shift();
+          var description = species.data.flavor_text_entries.filter(x => x.language.name == 'en').shift();
+
+          this.setState({
+            PokemonDetail: <PokemonDetail id={data.id} name={this.name} image={image} types={types} height={height} weight={weight} abilities={abilities} eggGroups={eggGroups} stats={stats} genus={genus.genus} description={description.flavor_text} />
+          });
+        });
+      });
     }
 
     leftArrowClick(){

@@ -21,7 +21,6 @@ class PokemonDetail extends Component{
 
         image.crossOrigin = 'Anonymous';
         image.src = googleProxyURL + encodeURIComponent(imageURL);
-
     }
 
     renderTypes(){
@@ -43,13 +42,15 @@ class PokemonDetail extends Component{
 
         return (
             <table className="statTable">
-                {Object.entries(this.props.stats).map(([stat, value]) => (
-                    <tr>
-                        <td className="statName">{this.getStatHeader(stat)}</td>
-                        <td className="statValue">{value}</td>
-                        <td className="statBar" ><ProgressBar now={value} max={max}/></td>
-                    </tr>
-                ))}
+                <tbody>
+                    {Object.entries(this.props.stats).map(([stat, value]) => (
+                        <tr>
+                            <td className="statName">{this.getStatHeader(stat)}</td>
+                            <td className="statValue">{value}</td>
+                            <td className="statBar" ><ProgressBar now={value} max={max}/></td>
+                        </tr>
+                    ))}
+                </tbody>
             </table>
         );
     }
@@ -74,18 +75,20 @@ class PokemonDetail extends Component{
     renderProfile(){
         return (
             <table className="profileTable">
-                <tr>
-                    <td className="abilityHeader">Height:</td>
-                    <td>{this.props.height} m</td>
-                    <td className="abilityHeader">Weight:</td>
-                    <td>{this.props.weight} kg</td>
-                </tr>
-                <tr>
-                    <td className="abilityHeader">Egg Groups:</td>
-                    <td><ul>{this.props.eggGroups.map( eg => ( <li>{eg}</li> ))}</ul></td>
-                    <td className="abilityHeader">Abilities:</td>
-                    <td><ul>{this.props.abilities.map( ab => ( <li>{ab}</li> ))}</ul></td>
-                </tr>
+                <tbody>
+                    <tr>
+                        <td className="abilityHeader">Height:</td>
+                        <td>{this.props.height} m</td>
+                        <td className="abilityHeader">Weight:</td>
+                        <td>{this.props.weight} kg</td>
+                    </tr>
+                    <tr>
+                        <td className="abilityHeader">Egg Groups:</td>
+                        <td><ul>{this.props.eggGroups.map( eg => ( <li>{eg}</li> ))}</ul></td>
+                        <td className="abilityHeader">Abilities:</td>
+                        <td><ul>{this.props.abilities.map( ab => ( <li>{ab}</li> ))}</ul></td>
+                    </tr>
+                </tbody>
             </table>
         )
     }
@@ -115,7 +118,7 @@ class PokemonDetail extends Component{
                         {this.props.genus}
                     </div>
                     <div className="description">
-                        {this.props.description}
+                        {this.props.description.replace("\f", " ")}
                     </div>
                 </div>
                 <div className="profilePanel">

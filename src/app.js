@@ -10,7 +10,7 @@ function App() {
         <div>
         <Switch>
             <Route exact path="/" component={Home}/>
-            <Route path="/pokemon/:id" component={Detail}/>
+            <Route path="/pokemon/:name" component={Detail}/>
             <Redirect from="*" to="/"/>
         </Switch>
         </div>
