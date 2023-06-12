@@ -14,6 +14,7 @@ height: 55px;
 .detailCard .titlePanel .nameContainer{
 padding: 17px 0px 14px 24px;
 font-weight: bold;
+text-transform: capitalize;
 }
 
 .detailCard .titlePanel .nameContainer .pokedexNumber{

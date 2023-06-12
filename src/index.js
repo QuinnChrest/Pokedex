@@ -6,8 +6,6 @@ import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './app'
 
-
-
 ReactDOM.render(            
     <Router basename={process.env.PUBLIC_URL}>
         <App/>

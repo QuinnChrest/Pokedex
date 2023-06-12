@@ -9,6 +9,7 @@
 
   .card:hover{
     background-color: rgb(245, 245, 245);
+    cursor: pointer;
   }
   
   .card .titleContainer{
@@ -21,6 +22,7 @@
     font-weight: bold;
     padding-left: 24px;
     padding-top: 17px;
+    text-transform: capitalize;
   }
   
   .card .imageContainer{
