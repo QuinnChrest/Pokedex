@@ -9,6 +9,10 @@ Project is also deployed at: [Pokedex](https://quinnchrest.github.io/Pokedex/)
 
 ---
 
+2023-6-12 - App is running on an old version of react and node. No intentions of updating just revisiting to fix the api and update the navigation a little.
+
+---
+
 This was My first experience with REACT and I gotta say, it was a lot of fun. I think my favorite part about REACT is you can dump variables into the html from the javascript side and it just works. Updating content on the page has never been so easy. Not having to deal with page life cycle problems was a nice change for once.
 
 I am happy with what I set out to achieve with this application but there are two things that I had to compromise on:
