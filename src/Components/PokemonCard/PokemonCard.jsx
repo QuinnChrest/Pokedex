@@ -5,7 +5,7 @@ import './PokemonCard.css';
 class PokemonCard extends Component{
 
     cardClick({target}){
-        this.props.history.push("/pokemon/" + this.props.name);
+        this.props.history.push({pathname: "/pokemon/" + this.props.name, state: { home: this.props.home }});
     }
 
     render() {

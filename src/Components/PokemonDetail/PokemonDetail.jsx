@@ -8,7 +8,7 @@ class PokemonDetail extends Component{
         super(props);
 
         //color thief tutorial for accessing image via google proxy
-        const colorThief = new ColorThief
+        const colorThief = new ColorThief();
         const image = new Image();
 
         image.addEventListener('load', function(){
@@ -24,8 +24,8 @@ class PokemonDetail extends Component{
     }
 
     renderTypes(){
-        return this.props.types.map((type) => (
-            <div key={type.key} className={"type " + type}>
+        return this.props.types.map((type, index) => (
+            <div key={index} className={"type " + type}>
                 <div className="text">{type}</div>
             </div>
         ))
@@ -43,8 +43,8 @@ class PokemonDetail extends Component{
         return (
             <table className="statTable">
                 <tbody>
-                    {Object.entries(this.props.stats).map(([stat, value]) => (
-                        <tr>
+                    {Object.entries(this.props.stats).map(([stat, value], index) => (
+                        <tr key={index}>
                             <td className="statName">{this.getStatHeader(stat)}</td>
                             <td className="statValue">{value}</td>
                             <td className="statBar" ><ProgressBar now={value} max={max}/></td>
@@ -69,6 +69,8 @@ class PokemonDetail extends Component{
                 return "Sp Atk";
             case "special-defense":
                 return "Sp Def";
+            default:
+                return "Unknown";
         }
     }
 
@@ -84,9 +86,9 @@ class PokemonDetail extends Component{
                     </tr>
                     <tr>
                         <td className="abilityHeader">Egg Groups:</td>
-                        <td><ul>{this.props.eggGroups.map( eg => ( <li>{eg}</li> ))}</ul></td>
+                        <td><ul>{this.props.eggGroups.map( (eg, index) => ( <li key={index}>{eg}</li> ))}</ul></td>
                         <td className="abilityHeader">Abilities:</td>
-                        <td><ul>{this.props.abilities.map( ab => ( <li>{ab}</li> ))}</ul></td>
+                        <td><ul>{this.props.abilities.map( (ab, index) => ( <li key={index}>{ab}</li> ))}</ul></td>
                     </tr>
                 </tbody>
             </table>
