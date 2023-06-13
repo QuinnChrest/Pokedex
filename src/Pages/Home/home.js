@@ -8,11 +8,17 @@ import './home.css';
 class Home extends Component {
   constructor(props){
     super(props);
+
+    this.URL = "https://pokeapi.co/api/v2/pokemon"
+
+    if(this.props.location.state && this.props.location.state.home){
+      this.URL = this.props.location.state.home;
+    }
+
     this.state = {
       pokemon: ""
     }
 
-    this.URL = "https://pokeapi.co/api/v2/pokemon"
     this.prevLink = "";
     this.nextLink = "";
 
@@ -31,8 +37,8 @@ class Home extends Component {
         this.prevLink = response.data.previous;
         this.nextLink = response.data.next;
         this.setState({
-          pokemon: <ul className="cardList">{response.data.results.map(pokemon => (
-            <li className="cardListItem"><PokemonCard id={pokemon.url.replace("https://pokeapi.co/api/v2/pokemon/", "").replace("/", "")} name={pokemon.name} url={pokemon.url}/></li>
+          pokemon: <ul className="cardList">{response.data.results.map((pokemon, index) => (
+            <li className="cardListItem" key={index}><PokemonCard id={pokemon.url.replace("https://pokeapi.co/api/v2/pokemon/", "").replace("/", "")} name={pokemon.name} url={pokemon.url} home={this.URL}/></li>
           ))}</ul>
         })
       }  
